@@ -31,11 +31,11 @@ public class BuscarAlumnos {
 			Integer ci = i;
 			String nombre = nombres[i - 1];
 			String apellido = apellidos[i - 1];
-			String dodigoCarrera = "LTI";
+			String codigoCarrera = "LTI";
 			String direccion = calles[i-1] + " " + numAleatorio(10000);
 			Integer anioNacimiento = 2020 - (18 + numAleatorio(15));
 			String archivoFoto = i + ".jpg";
-			Alumno alumno = new Alumno(ci, nombre, apellido, dodigoCarrera, direccion, anioNacimiento, archivoFoto);
+			Alumno alumno = new Alumno(ci, nombre, apellido, codigoCarrera, direccion, anioNacimiento, archivoFoto);
 			alumnos.add(alumno);
 		}
 		
@@ -52,6 +52,11 @@ public class BuscarAlumnos {
 		
 		for(Alumno alumno: alumnos) {
 			boolean ok=true;
+			if (ci!=null && ci.intValue()>0 && ci.intValue()<11) {
+				if (!(ci.intValue() == alumno.getCi().intValue())) {
+					ok=false;
+				}
+			}
 			//vemos criterio por nom
 			if (apellido!=null && !apellido.equals("")) {
 				if (!alumno.getApellido().toUpperCase().contains(apellido.toUpperCase())) {
@@ -63,11 +68,7 @@ public class BuscarAlumnos {
 					ok=false;
 				}
 			}
-			if (ci!=null && ci.intValue()>0) {
-				if (ci!=ci.intValue()) {
-					ok=false;
-				}
-			}
+			
 			if (ok) {
 				return alumno;
 			}
