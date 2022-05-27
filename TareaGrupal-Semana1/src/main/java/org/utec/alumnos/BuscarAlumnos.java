@@ -32,7 +32,11 @@ public class BuscarAlumnos {
 			String nombre = nombres[i - 1];
 			String apellido = apellidos[i - 1];
 			String dodigoCarrera = "LTI";
-			String direccion = calles[i-1] + " " + numAleatorio(10000);
+			StringBuilder strB = new StringBuilder();
+			strB.append(calles[i-1]);
+			strB.append("-");
+			strB.append(numAleatorio(10000));
+			String direccion = strB.toString();
 			Integer anioNacimiento = 2020 - (18 + numAleatorio(15));
 			String archivoFoto = i + ".jpg";
 			Alumno alumno = new Alumno(ci, nombre, apellido, dodigoCarrera, direccion, anioNacimiento, archivoFoto);

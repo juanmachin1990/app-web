@@ -1,3 +1,4 @@
+<%@page import="jdk.internal.misc.FileSystemOption"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="org.utec.alumnos.Alumno" import="org.utec.alumnos.BuscarAlumnos" %>
 <!DOCTYPE html>
@@ -31,44 +32,42 @@ Alumno alumno = buscarAlumnos.buscarAlumno(name, lastname, ci);
 			<table style="width: 100%">
 				<tr>
 					<td>Nombre</td>
-					<td ><input name="nombre" id="nombre"  value=<%alumno.getNombre();%> type="text"
+					<td ><input name="nombre" id="nombre"  value=<%=alumno.getNombre()%> type="text"
 						class="input"></td>
 				</tr>
 				<tr>
 					<td>Apellido</td>
-					<td><input name="apellido" id="apellido" value="" type="text"
-						class="input" /></td>
+					<td><input name="apellido" id="apellido" value=<%=alumno.getApellido()%> type="text"
+						class="input"></td>
 				</tr>
 				<tr>
 					<td>Cédula de identidad</td>
-					<td><input name="cedula" id="cedula" value="" type="number"
+					<td><input name="cedula" id="cedula" value=<%=alumno.getCi()%> type="number"
 						class="input"> </td>
 				</tr>
 				<tr>
 					<td>Código Carrera</td>
-					<td><input name="codigo" id="codigo" value="" type="number"
+					<td><input name="codigo" id="codigo" value=<%=alumno.getCodigoCarrera()%> type="text"
 						class="input"> </td>
 				</tr>
 				<tr>
 					<td>Dirección</td>
-					<td><input name="direccion" id="direccion" value="" type="text"
+					<td><input name="direccion" id="direccion" value=<%=alumno.getDireccion()%> type="text"
 						class="input"> </td>
 				</tr>
 				<tr>
 					<td>Año Nacimiento</td>
-					<td><input name="aniooNacimiento" id="anioNacimiento" value="" type="number"
+					<td><input name="aniooNacimiento" id="anioNacimiento" value=<%=alumno.getAnioNacimiento()%> type="number"
 						class="input"> </td>
 				</tr>
 				<tr>
 					<td>Archivo Foto de Alumno </td>
-					<td><input name="archivoFoto" id="archivoFoto" value="" type="text"
+					<td><input name="archivoFoto" id="archivoFoto" value=<%=alumno.getArchivoFoto()%> type="text"
 						class="input"> </td>
 				</tr>
 				<tr>
 					<td></td>
-					<td>
-						<button type="submit">Buscar alumno</button>
-					</td>
+					
 				</tr>
 			</table>
 			
