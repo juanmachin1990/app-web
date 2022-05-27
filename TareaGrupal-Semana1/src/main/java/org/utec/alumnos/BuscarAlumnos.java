@@ -64,7 +64,7 @@ public class BuscarAlumnos {
 				}
 			}
 			if (ci!=null && ci.intValue()>0) {
-				if (ci!=ci.intValue()) {
+				if (!(ci.intValue() == alumno.getCi().intValue())) {
 					ok=false;
 				}
 			}
@@ -74,6 +74,7 @@ public class BuscarAlumnos {
 		}
 		//no encontramos
 		//devolvemos alumno vacio
+		System.out.println("holis");
 		return new Alumno();
 		
 	}
