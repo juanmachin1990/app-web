@@ -47,7 +47,7 @@ table {border-colapse =collapse;
 
 	</table>
 	
-	<button onclick="history.back()">Volver </button>
+	<button class="botonVolver" onclick="history.back()">Volver</button>
 
 </body>
 </html>

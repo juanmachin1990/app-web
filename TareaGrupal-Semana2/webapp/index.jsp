@@ -13,7 +13,6 @@
 	<h2>Ingreso de persona</h2>
 	<label style="color: red;"> 
 	
-	
 	<!-- <%=request.getAttribute("errorMessage")%> <br> 	   -->
 	<!-- Se usan diferentes formas de mostrar el parametro errorMessage que vino en el request 
 	<c:out value="${errorMessage}"/> (2)<br>
@@ -45,7 +44,6 @@
 			</tr>
 			<tr>
 				<td><input type="submit" name="enviar" value="Enviar"></td>
-				
 			</tr>
 
 

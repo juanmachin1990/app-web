@@ -4,5 +4,10 @@
 
 .columnaIdentificador {
 	font-style: italic;
-	background-color: 'black';
+	font-weight: bold;
+	background-color: #F0F0F0;
+}
+
+.botonVolver {
+	margin-top: 7px;
 }
