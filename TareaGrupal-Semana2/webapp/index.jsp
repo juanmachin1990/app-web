@@ -7,14 +7,14 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Ingresar personas</title>
-
+<link rel="stylesheet" type="text/css" href="./index.css">
 </head>
-<body>
+<body class='body'>
 	<h2>Ingreso de persona</h2>
 	<label style="color: red;"> 
 	
 	
-	<%=request.getAttribute("errorMessage")%> <br> 	   
+	<!-- <%=request.getAttribute("errorMessage")%> <br> 	   -->
 	<!-- Se usan diferentes formas de mostrar el parametro errorMessage que vino en el request 
 	<c:out value="${errorMessage}"/> (2)<br>
 	${requestScope.errorMessage} (3)<br>
@@ -44,8 +44,8 @@
 				<td><input type="text" name="phone"></td>
 			</tr>
 			<tr>
-				<td></td>
 				<td><input type="submit" name="enviar" value="Enviar"></td>
+				
 			</tr>
 
 
