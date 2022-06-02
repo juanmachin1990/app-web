@@ -26,28 +26,30 @@ table {border-colapse =collapse;
 	<table border=1 style="border-collapse: collapse;">
 		<tr>
 			<td class='columnaIdentificador'>Id de persona</td>
-			<td>${requestScope.identificador}</td>
+			<td class='columnaValor'>${requestScope.identificador}</td>
 		</tr>
 		<tr>
 			<td class='columnaIdentificador'>Nombre</td>
-			<td>${requestScope.persona.name}</td>
+			<td class='columnaValor'>${requestScope.persona.name}</td>
 		</tr>
 		<tr>
 			<td class='columnaIdentificador'>Edad</td>
-			<td>${requestScope.persona.age}</td>
+			<td class='columnaValor'>${requestScope.persona.age}</td>
 		</tr>
 		<tr>
 			<td class='columnaIdentificador'>Dirección</td>
-			<td>${requestScope.persona.address}</td>
+			<td class='columnaValor'>${requestScope.persona.address}</td>
 		</tr>
 		<tr>
 			<td class='columnaIdentificador'>Teléfono</td>
-			<td>${requestScope.persona.phone}</td>
+			<td class='columnaValor'>${requestScope.persona.phone}</td>
 		</tr>
 
 	</table>
 	
-	<button class="botonVolver" onclick="history.back()">Volver</button>
+	<button class="botonVolver" onclick="history.back()" >
+			Volver
+	</button>
 
 </body>
 </html>

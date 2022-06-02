@@ -41,17 +41,18 @@ public class ValidarServlet extends HttpServlet {
 		String age=request.getParameter("age");
 		String address=request.getParameter("address");
 		String phone=request.getParameter("phone");
-		if (!name.equals("")) {
-			errorMessage="";
+		request.setAttribute("errorMessage","");
+		if (!name.equals("")&&name!=null) {
+			errorMessage=" ";
 			//Encontró un nombre en el campo name
 			Persona persona=new Persona(name,age,address,phone);
 			//salvamos en el Request scope
 			request.setAttribute("persona", persona);
-			request.setAttribute("errorMessage",errorMessage);
 			request.setAttribute("identificador", id);
+			request.setAttribute("errorMessage", errorMessage);
 			System.out.println(request.getAttribute("identificador"));
 			//después de asignarle la id a la persona, le sumamos 1 al contador global de id
-			id=id.valueOf(id.longValue()+1);
+			id=Long.valueOf(id.longValue()+1);
 			RequestDispatcher rd = request.getRequestDispatcher("/home.jsp");
 			
 			

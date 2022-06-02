@@ -13,13 +13,8 @@
 	<h2>Ingreso de persona</h2>
 	<label style="color: red;"> 
 	
-	<!-- <%=request.getAttribute("errorMessage")%> <br> 	   -->
-	<!-- Se usan diferentes formas de mostrar el parametro errorMessage que vino en el request 
-	<c:out value="${errorMessage}"/> (2)<br>
-	${requestScope.errorMessage} (3)<br>
+	 ${requestScope.errorMessage} <br> 	   
 	
-	-->
-
 	</label>
 
 	<form action="Validar" method="post">
