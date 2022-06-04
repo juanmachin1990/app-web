@@ -40,7 +40,7 @@ public class IngresarServlet extends HttpServlet {
 		request.setAttribute("persona", persona);
 		request.setAttribute("identificador", id);
 		id=Long.valueOf(id.longValue()+1);
-		RequestDispatcher rd = request.getRequestDispatcher("/home.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/mostrarDato.jsp");
 		
 		
 		rd.forward(request, response);
