@@ -36,7 +36,12 @@ public class ValidarServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		 response.setContentType("text/plain");
+		    response.setCharacterEncoding("UTF-8");
+
+		
 		String name=request.getParameter("name");
 		String age=request.getParameter("age");
 		String address=request.getParameter("address");
