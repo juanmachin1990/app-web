@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ValidarServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     public static String errorMessage = "";
-    public static Long id = Long.valueOf(0);
+    
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -49,16 +49,14 @@ public class ValidarServlet extends HttpServlet {
 		request.setAttribute("errorMessage","");
 		if (!name.equals("")&&name!=null) {
 			errorMessage=" ";
-			//Encontró un nombre en el campo name
-			Persona persona=new Persona(name,age,address,phone);
-			//salvamos en el Request scope
-			request.setAttribute("persona", persona);
-			request.setAttribute("identificador", id);
+			request.setAttribute("name", name);
+			request.setAttribute("age", age);
+			request.setAttribute("address", address);
+			request.setAttribute("phone", phone);
+
 			request.setAttribute("errorMessage", errorMessage);
-			System.out.println(request.getAttribute("identificador"));
 			//después de asignarle la id a la persona, le sumamos 1 al contador global de id
-			id=Long.valueOf(id.longValue()+1);
-			RequestDispatcher rd = request.getRequestDispatcher("/home.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("ingresar");
 			
 			
 			rd.forward(request, response);
