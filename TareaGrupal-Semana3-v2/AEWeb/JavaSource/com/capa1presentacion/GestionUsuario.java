@@ -64,17 +64,6 @@ public class GestionUsuario implements Serializable {
 		} 		
 		
 	}
-	
-	public String irLogin() {
-		return "Login";
-	}
-	public String irMostrarUsuario() {
-		//response.sendRedirect(request.getContextPath() + "/foo/bar.jsp");
-		return "/MostrarDatos.jsp";
-	}
-	public String irAltaUsuario() {
-		return "AltaUsuario";
-	}
 
 	public String reset() {
 		usuarioSeleccionado = new Usuario();

@@ -23,11 +23,11 @@ public class Login implements Serializable {
 
 	private String nombreUsuario ;
 	private String contrasenaUsuario ;
-	private Usuario usuarioLogueado;
 	
 	@PostConstruct
 	public void init() {
-		setUsuarioLogueado(new Usuario());
+	//	nombreUsuario     = new String();
+	//	contrasenaUsuario = new String();
 	}
 
 	public String login() {
@@ -41,20 +41,19 @@ public class Login implements Serializable {
 			if (contrasenaABuscar.equals(contrasenaUsuario) ) {
 				// mensaje de login correcta
 				facesMsg = new FacesMessage(FacesMessage.SEVERITY_INFO,
-						"Se ingresó correctamente", "");
+						"IngresÃ³ correctamente.", "");
 				FacesContext.getCurrentInstance().addMessage(null, facesMsg);				
 			}else {
 				// mensaje de login incorrecto
 				facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR,
-						"Contraseña incorrecta", "");
+						"ContraseÃ±a Incorrecta.", "");
 				FacesContext.getCurrentInstance().addMessage(null, facesMsg);		
 			}
-			setUsuarioLogueado(usuario);
-			return "index";	
+			return facesMsg.toString() ;	
 				
 		} catch (NullPointerException | PersistenciaException e) {
 
-			facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "No existe usuario", "");
+			facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "No existe usuario.", "");
 			FacesContext.getCurrentInstance().addMessage(null, facesMsg);
 			e.printStackTrace();			
 			return facesMsg.toString() ;
@@ -79,15 +78,15 @@ public class Login implements Serializable {
 		this.contrasenaUsuario = contrasenaUsuario;
 	}
 
-	public Usuario getUsuarioLogueado() {
-		return usuarioLogueado;
-		
+	/*public void logout() {
+		user = null;
 	}
 
-	public void setUsuarioLogueado(Usuario usuarioLogueado) {
-		this.usuarioLogueado = usuarioLogueado;
-		
+	public boolean isLoggedIn() {
+		return user != null;
 	}
 
-	
+	@Produces @LoggedIn User getCurrentUser() {
+		return user;
+	}*/
 }
