@@ -19,7 +19,8 @@ public class UsuarioBean {
 	private String habilitado;
 	
 	@EJB
-	private UsuarioBeanEJB usuariosBeanEJB;
+	private UsuarioBeanEJB usuarioBeanEJB;
+	
 	
 	public Long getId_usuario() {
 		return id_usuario;
@@ -84,11 +85,14 @@ public class UsuarioBean {
 	public void setHabilitado(String habilitado) {
 		this.habilitado = habilitado;
 	}
+	
+	
 
 
-	public String crearUsuario(){
+	public String crearUsuario(UsuarioBean u){
 		try{
-			usuariosBeanEJB.insertarUsuario(id_usuario, nombre, apellido, nombre_usuario, contrasena, mail, tipo, habilitado);
+			usuarioBeanEJB.insertarUsuario(Long.valueOf(u.getId_usuario()), u.getNombre(), u.getApellido(), 
+					u.getNombre_usuario(), u.getContrasena(), u.getMail(), u.getTipo(), "SI");
 			return "mostrar";
 		}catch(Exception e){
 			return null;

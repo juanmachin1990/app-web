@@ -50,7 +50,7 @@ public class UsuarioBeanEJB {
 			em.flush();
 			return u;
 		}catch(PersistenceException e){
-			throw new ServiciosException("No se pudo crear el usuario administrador");
+			throw new ServiciosException("No se pudo crear el usuario");
 
 		}
 	}
