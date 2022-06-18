@@ -5,6 +5,8 @@ import java.util.List;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
 import javax.persistence.TypedQuery;
@@ -23,9 +25,9 @@ import com.exceptions.ServiciosException;
 @LocalBean
 public class UsuarioBeanEJB {
 	
+	EntityManagerFactory emf = Persistence.createEntityManagerFactory("Semana4-EJB");
 	@PersistenceContext
-	private EntityManager em;
-
+	private EntityManager em = emf.createEntityManager();
     /**
      * Default constructor. 
      */
@@ -48,6 +50,7 @@ public class UsuarioBeanEJB {
 			Usuario u = new Usuario(id, nombre, apellido, mail, nombre_usuario, contrasena, TipoUsuario.valueOf(tipoUsuario), habilitado);
 			em.persist(u); 
 			em.flush();
+			System.out.println("Se creò el usuario en el ejb");
 			return u;
 		}catch(PersistenceException e){
 			throw new ServiciosException("No se pudo crear el usuario");

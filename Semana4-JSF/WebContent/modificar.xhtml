@@ -3,14 +3,15 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:c="http://java.sun.com/jsp/jstl/core_2_0">
+	xmlns:c="http://java.sun.com/jsp/jstl/core_2_0"
+	xmlns:p="http://java.sun.com/jsf/html">
 
 <h:head>
 
 </h:head>
 <body>
 
-	<h2>Crear Usuario</h2>
+	<h2>Modificar Usuario</h2>
 
 	<h:messages id="messages" showDetail="true" globalOnly="true"
 		closable="true" />
@@ -18,7 +19,7 @@
 	<h:form id="idDatosUsuario">
 
 		<h:panelGrid columns="3">
-			
+
 			<h:outputLabel value="Id" />
 			<h:inputText id="id" disabled="true"
 				value="#{gestionUsuario.usuario.id_usuario}" />
@@ -35,17 +36,17 @@
 			<h:message for="apellido" style="color:red" />
 
 			<h:outputLabel value="Mail" />
-			<h:inputText id="mail"
+			<h:inputText id="mail" 
 				value="#{gestionUsuario.usuario.mail}" />
 			<h:message for="mail" style="color:red" />
 
 			<h:outputLabel value="Nombre de usuario" />
-			<h:inputText id="nombreUsuario"
+			<h:inputText id="nombreUsuario" 
 				value="#{gestionUsuario.usuario.nombre_usuario}" />
 			<h:message for="nombreUsuario" style="color:red" />
 
 			<h:outputLabel value="Contraseña" />
-			<h:inputSecret id="contrasena"
+			<h:inputText id="contrasena" 
 				value="#{gestionUsuario.usuario.contrasena}" />
 			<h:message for="nombre" style="color:red" />
 
@@ -55,16 +56,16 @@
 				<f:selectItem itemValue="ADMINISTRADOR" itemLabel="Administrador" />
 				<f:selectItem itemValue="INVESTIGADOR" itemLabel="Investigador" />
 				<f:selectItem itemValue="AFICIONADO" itemLabel="Aficionado" />
-				 
 			</h:selectOneMenu>
-			<h:message for="tipoUsuario" style="color:red" />	
 		</h:panelGrid>
 		<br></br>
 		<br></br>
-		<h:commandButton value="Crear usuario" action="#{gestionUsuario.crearUsuario}"/>
+		<h:commandButton value="Guardar cambios" action="#{gestionUsuario.modificarUsuario}"/>
 		<br></br>
 		<br></br>
-		<h:commandButton value="Listado de usuarios" action="#{gestionUsuario.irMostrarUsuarios}"/>	</h:form>
+		
+	</h:form>
+
 
 </body>
 </html>

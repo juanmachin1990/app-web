@@ -1,12 +1,16 @@
 package com.bean;
 
 import javax.ejb.EJB;
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
+import com.entities.TipoUsuario;
+import com.entities.Usuario;
+import com.exceptions.ServiciosException;
 import com.services.UsuarioBeanEJB;
 @Named(value="usuario")
-@RequestScoped
+@ApplicationScoped
 public class UsuarioBean {
 	
 	private Long id_usuario;
@@ -19,8 +23,26 @@ public class UsuarioBean {
 	private String habilitado;
 	
 	@EJB
-	private UsuarioBeanEJB usuarioBeanEJB;
+	private UsuarioBeanEJB usuarioBeanEJB = new UsuarioBeanEJB();
 	
+	
+	public UsuarioBean() {
+		
+	}
+	
+	public UsuarioBean(Long id_usuario, String nombre, String apellido, String mail, String nombre_usuario,
+			String contrasena, String tipo, String habilitado) {
+		
+		this.id_usuario = id_usuario;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.mail = mail;
+		this.nombre_usuario = nombre_usuario;
+		this.contrasena = contrasena;
+		this.tipo = tipo;
+		this.habilitado = habilitado;
+
+	}
 	
 	public Long getId_usuario() {
 		return id_usuario;
@@ -89,14 +111,24 @@ public class UsuarioBean {
 	
 
 
-	public String crearUsuario(UsuarioBean u){
+	public void persistirUsuario(Long id, String nombre, String apellido, String nombre_usuario, String contrasena, 
+			String mail, String tipoUsuario, String habilitado){
 		try{
-			usuarioBeanEJB.insertarUsuario(Long.valueOf(u.getId_usuario()), u.getNombre(), u.getApellido(), 
-					u.getNombre_usuario(), u.getContrasena(), u.getMail(), u.getTipo(), "SI");
-			return "mostrar";
-		}catch(Exception e){
-			return null;
+			usuarioBeanEJB.insertarUsuario(id,nombre,apellido,nombre_usuario,contrasena,mail,tipoUsuario,habilitado);
+		}catch(ServiciosException e){
+			System.out.println("error al persistir");
 		}
 
 	}
+	
+	public Usuario convertirUsuario () {
+		return new Usuario(id_usuario, nombre, apellido, mail, nombre_usuario, contrasena, TipoUsuario.valueOf(tipo), habilitado);
+	}
+	
+	public UsuarioBean convertirUsuarioBean (Usuario u) {
+		return new UsuarioBean(u.getId_usuario(), u.getNombre(), u.getApellido(), u.getMail(), 
+				u.getNombre_usuario(), u.getContrasena(), u.getTipo().toString(), u.getHabilitado());
+	}
+	
+	
 }
